@@ -3,16 +3,35 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.practice</groupId>
-  <artifactId>cicd-demo</artifactId>
-  <version>1.0</version>
-  <packaging>war</packaging>
+    <groupId>com.practice</groupId>
+    <artifactId>cicd-demo</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
 
-  <build>
-    <finalName>cicd-demo</finalName>
-  </build>
+    <!-- Java version -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <finalName>cicd-demo</finalName>
+
+        <plugins>
+            <!-- WAR plugin compatible with Java 17 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
 
